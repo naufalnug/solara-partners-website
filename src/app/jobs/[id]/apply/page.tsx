@@ -190,7 +190,19 @@ export default function JobApplicationPage({ params }: { params: { id: string } 
           <div className="container max-w-3xl">
             <Card>
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  netlify
+                  data-netlify="true"
+                  name="job-application"
+                  encType="multipart/form-data"
+                >
+                  {/* Hidden input for Netlify */}
+                  <input type="hidden" name="form-name" value="job-application" />
+                  <input type="hidden" name="job-title" value={jobTitle} />
+                  <input type="hidden" name="job-id" value={params.id} />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="block text-sm font-medium">
@@ -297,6 +309,7 @@ export default function JobApplicationPage({ params }: { params: { id: string } 
                           <span className="text-accent font-medium">Choose file</span> or drag and drop
                           <Input
                             id="resume"
+                            name="resume"
                             type="file"
                             accept=".pdf,.doc,.docx"
                             onChange={(e) => handleFileChange(e, 'resume')}
@@ -339,6 +352,7 @@ export default function JobApplicationPage({ params }: { params: { id: string } 
                           <span className="text-accent font-medium">Choose file</span> or drag and drop
                           <Input
                             id="coverLetter"
+                            name="coverLetter"
                             type="file"
                             accept=".pdf,.doc,.docx"
                             onChange={(e) => handleFileChange(e, 'coverLetter')}

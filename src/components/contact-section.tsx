@@ -135,156 +135,157 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-fade-in [animation-delay:200ms]">
           {/* Glass morphism form card */}
           <div className="lg:col-span-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-8 hover:bg-white/15 transition-all duration-300">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="block text-sm font-medium">
-                      Full Name*
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Smith"
-                      required
-                      className={errors.name ? "border-red-500" : ""}
-                    />
-                    {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="company" className="block text-sm font-medium">
-                      Company*
-                    </label>
-                    <Input
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Your Company"
-                      required
-                      className={errors.company ? "border-red-500" : ""}
-                    />
-                    {errors.company && <p className="text-sm text-red-600">{errors.company}</p>}
-                  </div>
-                </div>
+            <form onSubmit={handleSubmit} className="space-y-6" netlify data-netlify="true" name="contact-section">
+              {/* Hidden input for Netlify */}
+              <input type="hidden" name="form-name" value="contact-section" />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="block text-sm font-medium">
-                      Email*
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="you@example.com"
-                      required
-                      className={errors.email ? "border-red-500" : ""}
-                    />
-                    {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="block text-sm font-medium">
-                      Phone
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-                </div>
-
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="service" className="block text-sm font-medium">
-                    Service of Interest
+                  <label htmlFor="name" className="block text-sm font-medium">
+                    Full Name*
                   </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="permanent">Permanent Placements</option>
-                    <option value="contract">Contract Staffing</option>
-                    <option value="executive">Executive Search</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="block text-sm font-medium">
-                    Message*
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your recruitment needs"
-                    rows={5}
+                    placeholder="John Smith"
                     required
-                    className={errors.message ? "border-red-500" : ""}
+                    className={errors.name ? "border-red-500" : ""}
                   />
-                  {errors.message && <p className="text-sm text-red-600">{errors.message}</p>}
+                  {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
                 </div>
+                <div className="space-y-2">
+                  <label htmlFor="company" className="block text-sm font-medium">
+                    Company*
+                  </label>
+                  <Input
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Your Company"
+                    required
+                    className={errors.company ? "border-red-500" : ""}
+                  />
+                  {errors.company && <p className="text-sm text-red-600">{errors.company}</p>}
+                </div>
+              </div>
 
-                <Button
-                  type="submit"
-                  className="btn-primary w-full transform hover:scale-105 transition-all duration-300"
-                  size="lg"
-                  disabled={isSubmitting}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-sm font-medium">
+                    Email*
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@example.com"
+                    required
+                    className={errors.email ? "border-red-500" : ""}
+                  />
+                  {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="block text-sm font-medium">
+                    Phone
+                  </label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="service" className="block text-sm font-medium">
+                  Service of Interest
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  {isSubmitting ? "Sending Message..." : "Send Message"}
-                </Button>
-              </form>
-            </div>
+                  <option value="">Select a service</option>
+                  <option value="permanent">Permanent Placements</option>
+                  <option value="contract">Contract Staffing</option>
+                  <option value="executive">Executive Search</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="block text-sm font-medium">
+                  Message*
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your recruitment needs"
+                  rows={5}
+                  required
+                  className={errors.message ? "border-red-500" : ""}
+                />
+                {errors.message && <p className="text-sm text-red-600">{errors.message}</p>}
+              </div>
+
+              <Button
+                type="submit"
+                className="btn-primary w-full transform hover:scale-105 transition-all duration-300"
+                size="lg"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending Message..." : "Send Message"}
+              </Button>
+            </form>
+          </div>
 
           {/* Glass morphism contact info card */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-8 flex flex-col h-full justify-between hover:bg-white/15 transition-all duration-300">
-              <div className="space-y-6">
-                <h3 className="text-xl font-bold">Contact Information</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <PhoneIcon className="h-5 w-5 text-accent mr-3 mt-0.5" />
-                    <div>
-                      <p className="font-medium">Phone</p>
-                      <a href="tel:+14155550123" className="text-muted-foreground hover:text-accent transition-colors">
-                        (415) 555-0123
-                      </a>
-                    </div>
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold">Contact Information</h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <PhoneIcon className="h-5 w-5 text-accent mr-3 mt-0.5" />
+                  <div>
+                    <p className="font-medium">Phone</p>
+                    <a href="tel:+14155550123" className="text-muted-foreground hover:text-accent transition-colors">
+                      (415) 555-0123
+                    </a>
                   </div>
-
-                  <div className="flex items-start">
-                    <MailIcon className="h-5 w-5 text-accent mr-3 mt-0.5" />
-                    <div>
-                      <p className="font-medium">Email</p>
-                      <a href="mailto:info@solarapartners.io" className="text-muted-foreground hover:text-accent transition-colors">
-                        info@solarapartners.io
-                      </a>
-                    </div>
-                  </div>
-
-
                 </div>
-              </div>
 
-              <div className="mt-8 pt-6 border-t border-white/20">
-                <div className="bg-accent/20 backdrop-blur-sm rounded-xl p-4">
-                  <p className="text-sm font-medium mb-2">Response Time</p>
-                  <p className="text-sm text-muted-foreground">
-                    We typically respond within 24 hours during business days.
-                  </p>
+                <div className="flex items-start">
+                  <MailIcon className="h-5 w-5 text-accent mr-3 mt-0.5" />
+                  <div>
+                    <p className="font-medium">Email</p>
+                    <a href="mailto:info@solarapartners.io" className="text-muted-foreground hover:text-accent transition-colors">
+                      info@solarapartners.io
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className="mt-8 pt-6 border-t border-white/20">
+              <div className="bg-accent/20 backdrop-blur-sm rounded-xl p-4">
+                <p className="text-sm font-medium mb-2">Response Time</p>
+                <p className="text-sm text-muted-foreground">
+                  We typically respond within 24 hours during business days.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

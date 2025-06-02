@@ -175,7 +175,17 @@ export default function SubmitProfilePage() {
           <div className="container max-w-2xl mx-auto">
             <Card>
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  netlify
+                  data-netlify="true"
+                  name="profile-submission"
+                  encType="multipart/form-data"
+                >
+                  {/* Hidden input for Netlify */}
+                  <input type="hidden" name="form-name" value="profile-submission" />
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="block text-sm font-medium">First Name*</label>

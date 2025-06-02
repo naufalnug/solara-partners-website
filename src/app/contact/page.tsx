@@ -148,7 +148,16 @@ export default function ContactPage() {
               <Card className="lg:col-span-2">
                 <CardContent className="p-6 md:p-8">
                   <h2 className="heading-md mb-6">Send Us a Message</h2>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-6"
+                    netlify
+                    data-netlify="true"
+                    name="contact"
+                  >
+                    {/* Hidden input for Netlify */}
+                    <input type="hidden" name="form-name" value="contact" />
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label htmlFor="name" className="block text-sm font-medium">
